@@ -1,0 +1,29 @@
+$rosso: red;
+$blu:blue ;
+$verde: green;
+
+div{
+    border: solid 1px $rosso;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1{
+        color: $verde;
+        border-bottom: solid 2px $blu;
+    }
+    section{
+        display: flex;
+        padding: 20px;
+        article{
+            border: solid 2px $verde;
+            padding: 1%;
+            .colore_blu{
+                color: $blu;
+            }
+            .colore_rosso{
+                color: $rosso;
+            }
+        }
+    }
+}
