@@ -1,5 +1,5 @@
-@use"variables"as v;
-@use"function"as f;
+@use"variables" as v;
+@use"function" as f;
 
 @mixin cose ($colore, $br_color, $f_size: 1rem) {
     color: $colore;
@@ -9,7 +9,7 @@
 }
 
 // la stessa cosa potevo fare con mixin senza argomenti
-%h1_h2{
+%h1_h2 {
     color: v.$verde;
 }
 
@@ -36,24 +36,37 @@ body {
             border: solid 1px v.$rosso;
         }
 
-        section:nth-of-type(1) {
-            display: flex;
-            & article:nth-of-type(2n+1) {
-                @include cose(v.$blu, v.$verde, );
-                padding: 5px;
-            }
-            & article:nth-of-type(2n+2) {
-                @include cose(v.$rosso, v.$verde, );
-                padding: 5px;
+        section {
+            &:nth-of-type(1) {
+                display: flex;
+
+                article {
+                    &:nth-of-type(2n+1) {
+                        color: blue;
+                        border: solid 1px;
+                        border-color: green;
+                        font-size: 1rem;
+                        padding: 5px;
+                    }
+
+                    &:nth-of-type(2n+2) {
+                        color: red;
+                        border: solid 1px;
+                        border-color: green;
+                        font-size: 1rem;
+                        padding: 5px;
+                    }
+                }
             }
         }
-
-        section:nth-of-type(2) {
-            & article { /* & usato in questo modo in verità non cambia nulla ma non sapevo come altro usarlo un questo html, è piu comodo cun un :hover o simili */
-                @include cose(v.$verde, v.$blu, f.conv(24))
+            section{
+                &:nth-of-type(2) {
+                    width: 100%;
+                    margin: f.conv(20);
+                    article {
+                        @include cose(v.$verde, v.$blu, f.conv(24))     
+                    }
+                }
             }
-            width: 100%;
-            margin: f.conv(20);
         }
     }
-}
