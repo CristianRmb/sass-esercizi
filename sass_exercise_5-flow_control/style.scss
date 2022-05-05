@@ -1,0 +1,95 @@
+@use"variables" as v;
+@use"function" as f;
+
+@mixin cose ($colore, $br_color, $f_size: 1rem) {
+    color: $colore;
+    border: solid 1px;
+    border-color: $br_color;
+    font-size: $f_size;
+}
+%h1_h2 {
+    color: v.$verde;
+}
+body {
+    div {
+        border: solid f.conv(1) v.$rosso;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: f.conv(20);
+        h1 {
+            @extend %h1_h2;
+            text-decoration: underline v.$blu;
+            text-underline-offset: f.conv(10px);
+        }
+        h2 {
+            @extend %h1_h2;
+            padding: 1rem;
+            border: solid 1px v.$rosso;
+        }
+        section {
+            &:nth-of-type(1) {
+                display: flex;
+                article {
+                    &:nth-of-type(2n+1) {
+                        color: blue;
+                        border: solid 1px;
+                        border-color: green;
+                        font-size: 1rem;
+                        padding: 5px;
+                    }
+                    &:nth-of-type(2n+2) {
+                        color: red;
+                        border: solid 1px;
+                        border-color: green;
+                        font-size: 1rem;
+                        padding: 5px;
+                    }
+                }
+            }
+        }
+        section {
+            &:nth-of-type(2) {
+                display: flex;
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 20px;
+            }
+            @each $var in 1rem 2rem 3rem {
+                .fs-#{$var} {
+                    font-size: $var;
+                    width: f.conv(45);
+                    height: f.conv(45);
+                }
+            }
+            div {
+                padding: 0;
+                justify-content: left;
+                align-items: flex-start;
+                @for $i from 1 through 19 {
+                    @if $i !=10 {
+                        &:nth-child(#{$i}){
+                            background-color: darken(#ffffff, $i * 5%);
+                            color: lighten($color: #000000, $amount: $i * 5%);
+                        }
+                    }
+                    @else{
+                        background-color: blue;
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+    section {
+        &:nth-of-type(3) {
+            width: 100%;
+            margin: f.conv(20);
+            article {
+                @include cose(v.$verde, v.$blu, f.conv(24))
+            }
+        }
+    }
+}
