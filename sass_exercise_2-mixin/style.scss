@@ -1,0 +1,44 @@
+$rosso: red;
+$blu:blue;
+$verde: green;
+
+@mixin cose ($colore, $br_color, $f_size: 1rem){
+    color: $colore;
+    border: solid 1px;
+    border-color: $br_color;
+    font-size: $f_size;  
+}
+body{
+    div{
+        border: solid 1px $rosso;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+        h1{
+            color: $verde;
+            text-decoration: underline $blu;
+            text-underline-offset: 10px;
+        }
+        section:nth-of-type(1){
+            display: flex;
+            article:nth-of-type(2n+1){
+                @include cose($blu, $verde ,  );
+                padding: 5px;
+            }     
+            article:nth-of-type(2n+2){
+                @include cose($rosso, $verde ,  );
+                padding: 5px;
+            }
+        }
+        section:nth-of-type(2) {
+            article{
+                @include cose($verde, $blu , 24px )
+            }
+            width: 100%;
+            margin: 20px;
+        }
+    } 
+}

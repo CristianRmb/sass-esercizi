@@ -1,1 +1,42 @@
-/*# sourceMappingURL=style.css.map */
+body div {
+  border: solid 0.0625rem red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 1.25rem;
+}
+body div h1 {
+  color: green;
+  -webkit-text-decoration: underline blue;
+          text-decoration: underline blue;
+  text-underline-offset: 0.625pxrem;
+}
+body div section:nth-of-type(1) {
+  display: flex;
+}
+body div section:nth-of-type(1) article:nth-of-type(2n+1) {
+  color: blue;
+  border: solid 1px;
+  border-color: green;
+  font-size: 1rem;
+  padding: 5px;
+}
+body div section:nth-of-type(1) article:nth-of-type(2n+2) {
+  color: red;
+  border: solid 1px;
+  border-color: green;
+  font-size: 1rem;
+  padding: 5px;
+}
+body div section:nth-of-type(2) {
+  width: 100%;
+  margin: 1.25rem;
+}
+body div section:nth-of-type(2) article {
+  color: green;
+  border: solid 1px;
+  border-color: blue;
+  font-size: 1.5rem;
+}/*# sourceMappingURL=style.css.map */
